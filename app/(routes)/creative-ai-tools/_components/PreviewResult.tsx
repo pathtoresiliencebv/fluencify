@@ -51,7 +51,7 @@ function PreviewResult({ }) {
         const a = document.createElement('a');
         a.href = blobUrl;
 
-        a.setAttribute('download', 'tubeguruji');
+        a.setAttribute('download', 'fluencify-generated');
         document.body.appendChild(a);
         a.click();
         document.body.removeChild(a);

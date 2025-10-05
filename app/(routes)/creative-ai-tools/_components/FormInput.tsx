@@ -22,27 +22,27 @@ const sampleProduct = [
 const AvatarList = [
     {
         name: 'Avatar 1',
-        imageUrl: 'https://ik.imagekit.io/tubeguruji/Avatar/portrait-pic2.avif?updatedAt=1756172636505'
+        imageUrl: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=400&h=400&fit=crop&crop=face'
     },
     {
         name: 'Avatar 2',
-        imageUrl: 'https://ik.imagekit.io/tubeguruji/Avatar/portrait-pic1.avif?updatedAt=1756172636403'
+        imageUrl: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face'
     },
     {
         name: 'Avatar 3',
-        imageUrl: 'https://ik.imagekit.io/tubeguruji/Avatar/__.avif?updatedAt=1756172636371'
+        imageUrl: 'https://images.unsplash.com/photo-1494790108755-2616b612b786?w=400&h=400&fit=crop&crop=face'
     },
     {
         name: 'Avatar 4',
-        imageUrl: 'https://ik.imagekit.io/tubeguruji/Avatar/avatar_for_social_app_realistic_female_98944746-c433-464d-8e6c-e44ee6b6c03e.webp?updatedAt=1756172618729'
+        imageUrl: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=400&h=400&fit=crop&crop=face'
     },
     {
         name: 'Avatar 5',
-        imageUrl: 'https://ik.imagekit.io/tubeguruji/Avatar/avatar-generator-professional-female-cover.webp?updatedAt=1756172618726'
+        imageUrl: 'https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=400&h=400&fit=crop&crop=face'
     },
     {
         name: 'Avatar 6',
-        imageUrl: 'https://ik.imagekit.io/tubeguruji/Avatar/675703157f0da.avif?updatedAt=1756172618707'
+        imageUrl: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop&crop=face'
     },
 
 ]

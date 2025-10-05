@@ -54,13 +54,11 @@ export function AppSidebar() {
         <Sidebar>
             <SidebarHeader>
                 <div className='p-4'>
-                    <div className='flex gap-2 items-center'>
-                        <Image src={'/logo.png'} alt='logo'
-                            width={100} height={100}
-                            className='w-[70px] h-full' />
-                        <h2 className='font-bold text-xl'>CREATIVE GURU</h2>
+                    <div className='flex justify-center'>
+                        <Image src={'/logo.png'} alt='Fluencify Logo'
+                            width={120} height={120}
+                            className='w-24 h-24 object-contain' />
                     </div>
-                    <h2 className='text-sm text-gray-400 text-center'>Build Awesome</h2>
                 </div>
             </SidebarHeader>
             <SidebarContent>
@@ -92,7 +90,6 @@ export function AppSidebar() {
                         <h2>Profile</h2>
                         <ProfileAvatar />
                     </div>}
-                <h2 className='p-2 text-gray-400 text-sm'>Copyright @Tubeguruji</h2>
             </SidebarFooter>
         </Sidebar>
     )
