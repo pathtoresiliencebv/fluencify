@@ -1,35 +1,30 @@
 "use client"
-import { auth } from '@/configs/firebaseConfig';
-import { GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
+import { useSignIn } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import React from 'react'
 
 function Authentication({ children }: any) {
-    const provider = new GoogleAuthProvider();
+    const { signIn, isLoaded } = useSignIn();
     const router = useRouter();
-    const onButtonPress = () => {
-        signInWithPopup(auth, provider)
-            .then((result) => {
-                // This gives you a Google Access Token. You can use it to access the Google API.
-                const credential: any = GoogleAuthProvider.credentialFromResult(result);
-                const token = credential.accessToken;
-                // The signed-in user info.
-                const user = result.user;
-                console.log(user);
-                router.replace('/app')
-                // IdP data available using getAdditionalUserInfo(result)
-                // ...
-            }).catch((error) => {
-                // Handle Errors here.
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                // The email of the user's account used.
-                const email = error.customData.email;
-                // The AuthCredential type that was used.
-                const credential = GoogleAuthProvider.credentialFromError(error);
-                // ...
+    
+    const onButtonPress = async () => {
+        if (!isLoaded) return;
+        
+        try {
+            const result = await signIn.authenticateWithRedirect({
+                strategy: 'oauth_google',
+                redirectUrl: '/app',
+                redirectUrlComplete: '/app'
             });
+            
+            if (result.status === 'complete') {
+                router.replace('/app');
+            }
+        } catch (error) {
+            console.error('Sign in error:', error);
+        }
     }
+    
     return (
         <div>
             <div onClick={onButtonPress}>

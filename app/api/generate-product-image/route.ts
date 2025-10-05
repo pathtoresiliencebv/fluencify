@@ -2,11 +2,10 @@
 // The following code is for a Next.js API route that handles product image generation using OpenAI.
 
 // The code imports necessary libraries and Firebase configurations.
-import { db } from "@/configs/firebaseConfig";
 import { imagekit } from "@/lib/imagekit";
 import { clientOpenAi } from "@/lib/openai";
-import { collection, deleteDoc, doc, getDocs, query, setDoc, updateDoc, where } from "firebase/firestore";
 import { NextRequest, NextResponse } from "next/server";
+import { auth } from '@clerk/nextjs/server';
 
 // PROMPT is a constant string defining the prompt for generating a product showcase image.
 const PROMPT = `Create a vibrant product showcase image featuring a uploaded image

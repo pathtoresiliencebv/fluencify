@@ -1,8 +1,7 @@
 "use client"
-import { auth } from '@/configs/firebaseConfig';
-import { onAuthStateChanged, signOut } from 'firebase/auth';
+import { useClerk } from '@clerk/nextjs';
 import Image from 'next/image';
-import React, { useEffect } from 'react'
+import React from 'react'
 import { useAuthContext } from '../provider';
 import {
     Popover,
@@ -15,21 +14,23 @@ import { useRouter } from 'next/navigation';
 
 function ProfileAvatar() {
 
-    const user = useAuthContext();
+    const { user } = useAuthContext();
+    const { signOut } = useClerk();
     const router = useRouter();
+    
     const onButtonPress = () => {
-        signOut(auth).then(() => {
-            // Sign-out successful.
+        signOut().then(() => {
             router.replace('/')
         }).catch((error) => {
-            // An error happened.
+            console.error('Sign out error:', error);
         });
     }
+    
     return (
         <div>
             <Popover >
                 <PopoverTrigger>
-                    {user?.user?.photoURL && <img src={user?.user?.photoURL} alt='profile' className='w-[35px] h-[35px] rounded-full' />}
+                    {user?.imageUrl && <img src={user?.imageUrl} alt='profile' className='w-[35px] h-[35px] rounded-full' />}
                 </PopoverTrigger>
                 <PopoverContent className='w-full mx-w-lg cursor-pointer'>
                     <h2 onClick={onButtonPress}>Logout</h2>
