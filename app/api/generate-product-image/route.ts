@@ -76,20 +76,21 @@ export async function POST(req: NextRequest) {
 
         // An API call is made to OpenAI's GPT-4.1-mini model to generate a text prompt for image creation,
         // using either AVATAR_PROMPT or PROMPT based on whether an avatar is present.
-        const response = await clientOpenAi.responses.create({
-            model: "gpt-4.1-mini",
-            input: [
+        const response = await clientOpenAi.chat.completions.create({
+            model: "gpt-4o-mini",
+            messages: [
                 {
                     role: 'user',
                     content: [
                         {
-                            type: 'input_text',
+                            type: 'text',
                             text: avatar?.length > 2 ? AVATAR_PROMPT : PROMPT
                         },
-                        //@ts-ignore
                         {
-                            type: 'input_image',
-                            image_url: imageUrl?.length > 0 ? imageUrl : imageKitRef.url
+                            type: 'image_url',
+                            image_url: {
+                                url: imageUrl?.length > 0 ? imageUrl : imageKitRef.url
+                            }
                         }
                     ]
                 }
@@ -99,7 +100,7 @@ export async function POST(req: NextRequest) {
 
 
         // The response text is parsed as JSON.
-        let textOutput = response.output_text?.trim() || "";
+        let textOutput = response.choices[0]?.message?.content?.trim() || "";
 
         // Raw code fences are removed.
         textOutput = textOutput.replace("```json", '').replace('```', '').trim();
