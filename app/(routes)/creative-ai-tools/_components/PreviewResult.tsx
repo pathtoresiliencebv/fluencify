@@ -1,8 +1,6 @@
 import { useAuthContext } from '@/app/provider'
 import { Button } from '@/components/ui/button';
-import { db } from '@/configs/firebaseConfig';
 import axios from 'axios';
-import { collection, onSnapshot, orderBy, query, where } from 'firebase/firestore';
 import { Download, Loader2Icon, LoaderCircle, Play, Sparkles } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -25,23 +23,12 @@ function PreviewResult({ }) {
     const [productList, setProductList] = useState<PreviewProduct[]>();
     const [loading, setLoading] = useState(false);
     useEffect(() => {
-        if (!user?.email) return;
-        const q = query(collection(db, "user-ads"),
-            where('userEmail', '==', user?.email),
-            orderBy('docId', 'desc'))
-
-        const unSub = onSnapshot(q, (querySnapshot) => {
-            const matchedDocs: any = [];
-            querySnapshot.forEach((doc) => {
-                matchedDocs.push({ id: doc.id, ...doc.data() });
-            })
-            console.log(matchedDocs)
-            setProductList(matchedDocs);
-        })
-
-        return () => unSub();
-
-    }, [user?.email])
+        if (!user?.emailAddresses?.[0]?.emailAddress) return;
+        
+        // TODO: Implement API call to get user ads
+        // For now, set empty array
+        setProductList([]);
+    }, [user?.emailAddresses])
 
     const DownloadImage = async (imageUrl: string) => {
         const result = await fetch(imageUrl);
