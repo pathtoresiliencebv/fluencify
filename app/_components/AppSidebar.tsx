@@ -54,10 +54,11 @@ export function AppSidebar() {
         <Sidebar>
             <SidebarHeader>
                 <div className='p-4'>
-                    <div className='flex justify-center'>
+                    <div className='flex gap-2 items-center'>
                         <Image src={'/logo.png'} alt='Fluencify Logo'
-                            width={120} height={120}
-                            className='w-24 h-24 object-contain' />
+                            width={100} height={100}
+                            className='w-[70px] h-full' />
+                        <h2 className='font-bold text-xl'>Fluencify</h2>
                     </div>
                 </div>
             </SidebarHeader>
