@@ -1,36 +1,143 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🚀 Fluencify - AI Product Image Generator
 
-## Getting Started
+Een krachtige SaaS applicatie voor het genereren van product afbeeldingen, video's en avatars met behulp van AI technologie.
 
-First, run the development server:
+## ✨ Features
 
+- **🎨 AI Product Image Generation** - Genereer professionele product afbeeldingen
+- **🎬 Product Video Creation** - Maak aantrekkelijke product video's
+- **👤 Product Avatar Generator** - Creëer unieke product avatars
+- **🔐 Firebase Authentication** - Veilige gebruikersbeheer
+- **💳 Credits System** - Gebruikers credits systeem
+- **☁️ Cloud Storage** - ImageKit integratie voor bestandsopslag
+- **📱 Responsive Design** - Werkt op alle apparaten
+
+## 🛠️ Tech Stack
+
+- **Frontend**: Next.js 15, React 18, TypeScript
+- **Styling**: Tailwind CSS
+- **Database**: Neon PostgreSQL met Drizzle ORM
+- **Authentication**: Firebase Auth
+- **AI Services**: OpenAI, Replicate
+- **Storage**: ImageKit
+- **Deployment**: Vercel
+
+## 🚀 Getting Started
+
+### Prerequisites
+
+- Node.js 18+ 
+- Yarn (aanbevolen) of npm
+- Firebase project
+- Neon database
+- OpenAI API key
+- Replicate API token
+- ImageKit account
+
+### Installation
+
+1. **Clone de repository**
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/pathtoresiliencebv/fluencify.git
+cd fluencify
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+2. **Installeer dependencies**
+```bash
+yarn install
+# of
+npm install
+```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+3. **Configureer omgevingsvariabelen**
+Maak een `.env.local` bestand met de volgende variabelen:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```env
+# Firebase
+NEXT_PUBLIC_FIREBASE_API_KEY=your_firebase_api_key
+NEXT_PUBLIC_FIREBASE_AUTH_DOMAIN=your_project.firebaseapp.com
+NEXT_PUBLIC_FIREBASE_PROJECT_ID=your_project_id
+NEXT_PUBLIC_FIREBASE_STORAGE_BUCKET=your_project.appspot.com
+NEXT_PUBLIC_FIREBASE_MESSAGING_SENDER_ID=your_sender_id
+NEXT_PUBLIC_FIREBASE_APP_ID=your_app_id
+NEXT_PUBLIC_FIREBASE_MESURMENT_ID=your_measurement_id
 
-## Learn More
+# Database
+NEXT_PUBLIC_NEON_DB_CONNECTION_STRING=postgresql://username:password@host/database
 
-To learn more about Next.js, take a look at the following resources:
+# AI Services
+OPENAI_KEY=your_openai_api_key
+REPLICATE_API_TOKEN=your_replicate_token
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+# Image Storage
+IMAGEKIT_PUBLIC_KEY=your_imagekit_public_key
+IMAGEKIT_PRIVATE_URL=your_imagekit_private_key
+IMAGEKIT_URL_ENDPOINT=https://ik.imagekit.io/your_id
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+4. **Database setup**
+```bash
+npx drizzle-kit push
+```
 
-## Deploy on Vercel
+5. **Start development server**
+```bash
+yarn dev
+# of
+npm run dev
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Open [http://localhost:3000](http://localhost:3000) in je browser.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 📁 Project Structure
+
+```
+fluencify/
+├── app/                    # Next.js app directory
+│   ├── (routes)/          # Route groups
+│   │   ├── app/           # Main app pages
+│   │   ├── creative-ai-tools/  # AI tools pages
+│   │   └── my-ads/        # User ads management
+│   ├── api/               # API routes
+│   └── _components/       # Shared components
+├── components/            # Reusable UI components
+├── configs/              # Configuration files
+├── context/              # React context providers
+├── hooks/                # Custom React hooks
+├── lib/                  # Utility libraries
+└── public/               # Static assets
+```
+
+## 🚀 Deployment
+
+De applicatie is geoptimaliseerd voor deployment op Vercel:
+
+1. **Push naar GitHub** (al gedaan)
+2. **Connect met Vercel**
+3. **Configureer omgevingsvariabelen** in Vercel dashboard
+4. **Deploy automatisch**
+
+## 🤝 Contributing
+
+1. Fork het project
+2. Maak een feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit je changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push naar de branch (`git push origin feature/AmazingFeature`)
+5. Open een Pull Request
+
+## 📄 License
+
+Dit project is gelicenseerd onder de MIT License - zie het [LICENSE](LICENSE) bestand voor details.
+
+## 🔗 Links
+
+- **Live Demo**: [https://fluencify.vercel.app](https://fluencify.vercel.app)
+- **GitHub Repository**: [https://github.com/pathtoresiliencebv/fluencify](https://github.com/pathtoresiliencebv/fluencify)
+
+## 📞 Support
+
+Voor vragen of ondersteuning, open een issue in de GitHub repository.
+
+---
+
+Gemaakt met ❤️ door Path to Resilience BV
